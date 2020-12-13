@@ -83,9 +83,9 @@ const Signup = () => {
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                             />
-                                            {
+                                            {/* {
                                                 console.log(email)
-                                            }
+                                            } */}
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
@@ -101,14 +101,14 @@ const Signup = () => {
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                             />
-                                            {
+                                            {/* {
                                                 console.log(password)
-                                            }
+                                            } */}
                                         </Col>
                                     </FormGroup>
                                 </CardBody>
                                 <CardFooter>
-                                    <Button  block color='primary'>
+                                    <Button type="submit"  block color='primary'>
                                         Sign Up
                                     </Button>
                                 </CardFooter>
