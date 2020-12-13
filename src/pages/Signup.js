@@ -39,6 +39,10 @@ const Signup = () => {
                     email : res.user.email,
                     uid : res.user.uid
                 })
+            
+            if(res.user.uid){
+                    return <Redirect to="/" />
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -56,9 +60,9 @@ const Signup = () => {
         handleSignUp();
     }
 
-    if(context.user?.uid){
-        return <Redirect to="/" />
-    }
+//     if(context.user?.uid){
+//         return <Redirect to="/" />
+//     }
 
     return(
             <Container className='text-center'>
