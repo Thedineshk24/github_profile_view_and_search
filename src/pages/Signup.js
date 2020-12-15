@@ -55,12 +55,15 @@ const Signup = () => {
     // handle submit
     const handleSubmit = e => {
         e.preventDefault();
-        handleSignUp(); 
+        handleSignUp();
+        
     }
 
     if(context.user?.uid){
-        return <Redirect to="/signin" />
+        return <Redirect to="/" />
     }
+   
+
     return(
             <Container className='text-center'>
                 <Row>
