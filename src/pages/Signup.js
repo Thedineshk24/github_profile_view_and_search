@@ -15,7 +15,7 @@ import {
 } from "reactstrap"
 
 import firebase from "firebase/app"
-// import "firebase/auth"
+import "firebase/auth"
 import {UserContext} from "../context/UserContext"
 import {Redirect} from "react-router-dom"
 import {toast} from "react-toastify"
@@ -39,6 +39,9 @@ const Signup = () => {
                     email : res.user.email,
                     uid : res.user.uid
                 })
+                // if(res.user.uid){
+                //     return <Redirect to="/" />
+                // }
             })
             .catch(error => {
                 console.log(error);
@@ -51,15 +54,13 @@ const Signup = () => {
 
     // handle submit
     const handleSubmit = e => {
-        e.preventDeafult();
-
-        handleSignUp();
+        e.preventDefault();
+        handleSignUp(); 
     }
 
     if(context.user?.uid){
-        return <Redirect to="/" />
+        return <Redirect to="/signin" />
     }
-
     return(
             <Container className='text-center'>
                 <Row>
@@ -81,6 +82,9 @@ const Signup = () => {
                                                 value={email}
                                                 onChange={e => setEmail(e.target.value)}
                                             />
+                                            {/* {
+                                                console.log(email)
+                                            } */}
                                         </Col>
                                     </FormGroup>
                                     <FormGroup row>
@@ -96,11 +100,14 @@ const Signup = () => {
                                                 value={password}
                                                 onChange={e => setPassword(e.target.value)}
                                             />
+                                            {/* {
+                                                console.log(password)
+                                            } */}
                                         </Col>
                                     </FormGroup>
                                 </CardBody>
                                 <CardFooter>
-                                    <Button type='submit' block color='primary'>
+                                    <Button type="submit"  block color='primary'>
                                         Sign Up
                                     </Button>
                                 </CardFooter>

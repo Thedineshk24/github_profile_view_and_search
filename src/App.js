@@ -48,7 +48,7 @@ const App = () => {
           <Route path="/signup" component={Signup} />
           {/* we skipped path in below Route bcz when we dont provide path element in below route so when user search for the 
         page that is not available below component by default provide notfound page */}
-          <Route path="*" component={Notfound} />
+          <Route component={Notfound} />
         </Switch>
         {/* FOOTER */}
         <Footer />
